@@ -35,6 +35,13 @@ import { OrderTableComponent } from './components/orders/order-table/order-table
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 import { OrderEditComponent } from './pages/orders/order-edit/order-edit.component';
 import { OrderAddComponent } from './pages/orders/order-add/order-add.component';
+import { ProductCardComponent } from './components/products/product-card/product-card.component';
+import { ProductListComponent } from './components/products/product-list/product-list.component';
+import { ProductFormComponent } from './components/products/product-form/product-form.component';
+import { ProductTableComponent } from './components/products/product-table/product-table.component';
+import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
+import { ProductEditComponent } from './pages/products/product-edit/product-edit.component';
+import { ProductAddComponent } from './pages/products/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +76,14 @@ import { OrderAddComponent } from './pages/orders/order-add/order-add.component'
     OrderTableComponent,
     OrderDetailsComponent,
     OrderEditComponent,
-    OrderAddComponent
+    OrderAddComponent,
+    ProductCardComponent,
+    ProductListComponent,
+    ProductFormComponent,
+    ProductTableComponent,
+    ProductDetailsComponent,
+    ProductEditComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +91,6 @@ import { OrderAddComponent } from './pages/orders/order-add/order-add.component'
     NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [NavBarComponent, AppComponent]
 })
 export class AppModule { }
