@@ -1,13 +1,16 @@
-const urls = {
+const pizzaApiRoot: string = 'https://pizzastep.pp.ua:44306/api';
+
+
+export const urls = {
   apis: {
     pizza: {
-      root: 'https://pizzastep.pp.ua:44306/api',
-      
-      categories: 'https://pizzastep.pp.ua:44306/api/category',
-      products: 'https://pizzastep.pp.ua:44306/api/product',
-      statuses: 'https://pizzastep.pp.ua:44306/api/status',
-      ingredients: 'https://pizzastep.pp.ua:44306/api/ingredient',
-      orders: 'https://pizzastep.pp.ua:44306/api/order',
+      root: pizzaApiRoot,
+
+      categories: pizzaApiRoot + '/category',
+      products: pizzaApiRoot + '/product',
+      statuses: pizzaApiRoot + '/status',
+      ingredients: pizzaApiRoot + '/ingredient',
+      orders: pizzaApiRoot + '/order',
     }
   }
 }
