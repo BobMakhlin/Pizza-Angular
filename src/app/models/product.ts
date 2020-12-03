@@ -4,9 +4,9 @@ import { Ingredient } from './ingredient';
 
 
 export interface Product {
-  id: number;
+  id?: number;
   title: string;
-  description: string;
+  description?: string;
   photo: string;
   weight: number;
   price: number;
