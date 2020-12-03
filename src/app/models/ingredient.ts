@@ -1,7 +1,7 @@
 export interface Ingredient {
-  id: number;
+  id?: number;
   title: string;
-  photo: string;
+  photo?: string;
   price: number;
   isEnabled: boolean;
 }
