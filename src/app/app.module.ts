@@ -43,6 +43,11 @@ import { ProductTableComponent } from './components/products/product-table/produ
 import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
 import { ProductEditComponent } from './pages/products/product-edit/product-edit.component';
 import { ProductAddComponent } from './pages/products/product-add/product-add.component';
+import { CategoriesComponent } from './pages/categories/categories/categories.component';
+import { IngredientsComponent } from './pages/ingredients/ingredients/ingredients.component';
+import { StatusesComponent } from './pages/statuses/statuses/statuses.component';
+import { OrdersComponent } from './pages/orders/orders/orders.component';
+import { ProductsComponent } from './pages/products/products/products.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +89,12 @@ import { ProductAddComponent } from './pages/products/product-add/product-add.co
     ProductTableComponent,
     ProductDetailsComponent,
     ProductEditComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    CategoriesComponent,
+    IngredientsComponent,
+    StatusesComponent,
+    OrdersComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
