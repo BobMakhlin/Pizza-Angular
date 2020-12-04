@@ -1,1 +1,24 @@
-<p>categories works!</p>
+
+<h2 class="page-title">Categories</h2>
+
+<p class="text-center mb-5">
+  <a routerLink="/categories/add" class="btn btn-primary">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create New
+  </a>
+</p>
+
+
+<ng-container *ngIf="categoryList; else loadingBlock">
+
+  <app-category-list
+    [models]="categoryList"
+    (onModelEnabledOrDisabled)="handleCategoryEnablingOrDisabling($event)"
+  ></app-category-list>
+
+</ng-container>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

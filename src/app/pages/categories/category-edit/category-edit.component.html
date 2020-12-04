@@ -1,1 +1,19 @@
-<p>category-edit works!</p>
+<div *ngIf="category; else loadingBlock">
+
+  <app-category-form
+    [model]="category"
+    (onFormSubmit)="handleFormSubmit()"
+  ></app-category-form>
+
+  <app-go-back class="mt-4 float-right"></app-go-back>
+
+</div>
+
+
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>
+
+

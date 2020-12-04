@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Category } from 'src/app/models/category';
+import { CategoryService } from 'src/app/services/category.service';
+import { MessagesService } from 'src/app/services/messages.service';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-category-edit',
@@ -7,9 +13,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryEditComponent implements OnInit {
 
-  constructor() { }
+  public category: Category;
 
-  ngOnInit(): void {
+  constructor(
+    private m_activatedRoute: ActivatedRoute,
+    private m_categoryService: CategoryService,
+    private m_messagesService: MessagesService,
+    private m_location: Location
+  ) { }
+
+
+  public ngOnInit(): void {
+    this.loadCategory();
+  }
+
+  public handleFormSubmit(): void {
+    this.m_categoryService.putCategory(this.category)
+      .subscribe(
+        _ => {
+          this.m_messagesService.addMessage('Success!');
+
+          timer(1000).subscribe(_ => this.m_location.back());
+        },
+        _ => this.m_messagesService.addMessage('Error...')
+      )
+  }
+
+
+  private loadCategory(): void {
+    const idString: string = this.m_activatedRoute.snapshot.paramMap.get('id');
+    const id: number = +idString;
+
+    this.m_categoryService.getCategory(id)
+      .subscribe(category => this.category = category);
   }
 
 }

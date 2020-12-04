@@ -1,1 +1,14 @@
-<p>category-table works!</p>
+<table class="table table-stripped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Enabled</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{category.title}}</td>
+            <td>{{category.isEnabled ? 'Yes' : 'No'}}</td>
+        </tr>
+    </tbody>
+</table>

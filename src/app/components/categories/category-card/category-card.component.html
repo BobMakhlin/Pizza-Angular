@@ -1,1 +1,23 @@
-<p>category-card works!</p>
+<div class="card">
+    <div class="card-body text-center">
+        <h5 class="card-title">{{model.title}}</h5>
+
+        <hr>
+
+        <mat-slide-toggle [(ngModel)]="model.isEnabled" (change)="handleSliderValueChange()">
+        </mat-slide-toggle>
+
+        <hr>
+
+        <div class="btn-group d-block mt-2" role="group">
+          <a routerLink="/categories/details/{{model.id}}" class="btn btn-sm btn-secondary">
+            <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+          </a>
+
+          <a routerLink="/categories/edit/{{model.id}}" type="button" class="btn btn-sm btn-secondary">
+            <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+          </a>
+        </div>
+
+    </div>
+</div>

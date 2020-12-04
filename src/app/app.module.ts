@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +50,14 @@ import { IngredientsComponent } from './pages/ingredients/ingredients/ingredient
 import { StatusesComponent } from './pages/statuses/statuses/statuses.component';
 import { OrdersComponent } from './pages/orders/orders/orders.component';
 import { ProductsComponent } from './pages/products/products/products.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoadingComponent } from './components/loading/loading.component';
+import { MessageListComponent } from './components/messages/message-list/message-list.component';
+import { MessageComponent } from './components/messages/message/message.component';
+import { FontAwesomeIconsModule } from './fontawesome-icons/fontawesome-icons.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { GoBackComponent } from './components/go-back/go-back.component';
+
 
 @NgModule({
   declarations: [
@@ -94,13 +104,23 @@ import { ProductsComponent } from './pages/products/products/products.component'
     IngredientsComponent,
     StatusesComponent,
     OrdersComponent,
-    ProductsComponent
+    ProductsComponent,
+    LoadingComponent,
+    MessageListComponent,
+    MessageComponent,
+    GoBackComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    FontAwesomeIconsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [NavBarComponent, AppComponent]

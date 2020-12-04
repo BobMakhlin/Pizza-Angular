@@ -1,0 +1,7 @@
+<app-message
+  *ngFor="let message of messages"
+  [message]="message"
+  (onDelete)="handleMessageDelete($event)"
+>
+
+</app-message>

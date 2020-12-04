@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Category } from 'src/app/models/category';
 
 @Component({
   selector: 'app-category-form',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryFormComponent implements OnInit {
 
-  constructor() { }
+  public mainFormGroup: FormGroup;
 
-  ngOnInit(): void {
+
+  @Input() model: Category;
+
+  @Output() onFormSubmit: EventEmitter<any> = new EventEmitter<any>();
+
+
+  constructor(
+    private m_formBuilder: FormBuilder
+  ) {}
+
+  public get formTitle(): AbstractControl {
+    return this.mainFormGroup.get('title');
+  }
+
+
+  public ngOnInit(): void {
+    this.buildForm();
+  }
+
+  public handleFormSubmit(): void {
+    this.model.title = this.mainFormGroup.value.title;
+    this.onFormSubmit.emit();
+  }
+
+  public buildForm(): void {
+    this.mainFormGroup = this.m_formBuilder.group({
+      title: [
+        this.model.title,
+        [ Validators.required, Validators.maxLength(24) ]
+      ],
+    })
+
   }
 
 }

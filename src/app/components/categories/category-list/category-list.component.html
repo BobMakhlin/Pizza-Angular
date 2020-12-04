@@ -1,1 +1,13 @@
-<p>category-list works!</p>
+<div class="row">
+  <div
+    *ngFor="let model of models"
+    class="col-3 mb-4"
+  >
+
+    <app-category-card
+      [model]="model"
+      (onModelEnabledOrDisabled)="onModelEnabledOrDisabled.emit($event)"
+    ></app-category-card>
+
+  </div>
+</div>
