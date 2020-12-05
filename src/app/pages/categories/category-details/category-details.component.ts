@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category';
-import { CategoryService } from 'src/app/services/category.service';
+import { CategoryService } from 'src/app/services/crud/api-crud/category.service';
 
 @Component({
   selector: 'app-category-details',
@@ -26,7 +26,7 @@ export class CategoryDetailsComponent implements OnInit {
     const idString: string = this.m_activatedRoute.snapshot.paramMap.get('id');
     const id: number = +idString;
 
-    this.m_categoryService.getCategory(id)
+    this.m_categoryService.get(id)
       .subscribe(category => this.category = category);
   }
 

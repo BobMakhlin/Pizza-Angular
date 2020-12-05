@@ -1,7 +1,7 @@
 import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { Category } from 'src/app/models/category';
-import { CategoryService } from 'src/app/services/category.service';
+import { CategoryService } from 'src/app/services/crud/api-crud/category.service';
 import { MessagesService } from 'src/app/services/messages.service';
 
 import { timer } from 'rxjs';
@@ -25,7 +25,7 @@ export class CategoryAddComponent {
 
 
   public handleFormSubmit(): void {
-    this.m_categoryService.postCategory(this.category)
+    this.m_categoryService.post(this.category)
       .subscribe(
         _ => {
           this.m_messagesService.addMessage('Success!');

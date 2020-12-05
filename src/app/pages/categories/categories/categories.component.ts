@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Category } from 'src/app/models/category';
-import { CategoryService } from 'src/app/services/category.service';
+import { CategoryService } from 'src/app/services/crud/api-crud/category.service';
 import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   public handleCategoryEnablingOrDisabling(category: Category) {
-    this.m_categoryService.putCategory(category)
+    this.m_categoryService.put(category.id, category)
       .subscribe(
         _ => this.m_messagesService.addMessage('Success!'),
         _ => this.m_messagesService.addMessage('Error...')
@@ -34,7 +34,7 @@ export class CategoriesComponent implements OnInit {
   }
 
   private loadCategories(): void {
-    const categories$: Observable<Category[]> = this.m_categoryService.getCategories();
+    const categories$: Observable<Category[]> = this.m_categoryService.getAll();
 
     categories$.subscribe(
       categories => this.categoryList = categories
