@@ -1,6 +1,7 @@
 <app-message
   *ngFor="let message of messages"
   [message]="message"
+  [timeToLive]="messageTimeToLive"
   (onDelete)="handleMessageDelete($event)"
 >
 

@@ -10,6 +10,7 @@ import remove from 'lodash-es/remove';
 })
 export class MessageListComponent {
 
+  @Input() messageTimeToLive: number;
   @Input() messages: Message[];
 
 

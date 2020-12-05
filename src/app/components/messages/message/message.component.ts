@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { timer } from 'rxjs';
 import { Message } from 'src/app/models/message';
 
 @Component({
@@ -9,15 +10,16 @@ import { Message } from 'src/app/models/message';
 export class MessageComponent implements OnInit {
 
   @Input() message: Message;
+  @Input() timeToLive: number;
 
   @Output() onDelete: EventEmitter<Message> = new EventEmitter<Message>();
 
 
   public ngOnInit(): void {
-    setTimeout(
-      () => this.onDelete.emit(this.message),
-      1000
-    );
+    timer(this.timeToLive)
+      .subscribe(
+        () => this.onDelete.emit(this.message)
+      );
   }
 
 }
