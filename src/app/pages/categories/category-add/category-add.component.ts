@@ -14,7 +14,7 @@ import { timer } from 'rxjs';
 })
 export class CategoryAddComponent {
 
-  public category: Category = {} as Category;
+  public category: Category = { id: 0, isEnabled: false } as Category;
 
 
   constructor(
@@ -24,8 +24,8 @@ export class CategoryAddComponent {
   ) { }
 
 
-  public handleFormSubmit(): void {
-    this.m_categoryService.post(this.category)
+  public handleFormSubmit(category: Category): void {
+    this.m_categoryService.post(category)
       .subscribe(
         _ => {
           this.m_messagesService.addMessage('Success!');

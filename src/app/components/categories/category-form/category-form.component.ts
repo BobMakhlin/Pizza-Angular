@@ -14,7 +14,7 @@ export class CategoryFormComponent implements OnInit {
 
   @Input() model: Category;
 
-  @Output() onFormSubmit: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onFormSubmit: EventEmitter<Category> = new EventEmitter<Category>();
 
 
   constructor(
@@ -31,16 +31,23 @@ export class CategoryFormComponent implements OnInit {
   }
 
   public handleFormSubmit(): void {
-    this.model.title = this.mainFormGroup.value.title;
-    this.onFormSubmit.emit();
+    const category: Category = this.mainFormGroup.value;
+    this.onFormSubmit.emit(category);
   }
 
   public buildForm(): void {
+
     this.mainFormGroup = this.m_formBuilder.group({
+      id: [
+        this.model.id
+      ],
       title: [
         this.model.title,
         [ Validators.required, Validators.maxLength(24) ]
       ],
+      isEnabled: [
+        this.model.isEnabled
+      ]
     })
 
   }

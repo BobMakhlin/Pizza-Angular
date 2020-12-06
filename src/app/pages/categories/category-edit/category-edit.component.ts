@@ -27,8 +27,8 @@ export class CategoryEditComponent implements OnInit {
     this.loadCategory();
   }
 
-  public handleFormSubmit(): void {
-    this.m_categoryService.put(this.category.id, this.category)
+  public handleFormSubmit(category: Category): void {
+    this.m_categoryService.put(category.id, category)
       .subscribe(
         _ => {
           this.m_messagesService.addMessage('Success!');
