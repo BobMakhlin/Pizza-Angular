@@ -18,7 +18,7 @@ export class ProductService extends ApiCrudBase<Product, number> {
 
   public putPartially(key: number, item: Product): Observable<Product> {
     return this.m_http.put<Product>(
-      `${urls.apis.pizza.products}/${key}`,
+      `${urls.apis.pizza.products}/partially/${key}`,
       item
     );
   }

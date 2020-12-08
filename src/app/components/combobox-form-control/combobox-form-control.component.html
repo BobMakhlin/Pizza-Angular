@@ -1,0 +1,17 @@
+<select
+  [(ngModel)]="selectedItem" [ngModelOptions]="{standalone: true}"
+  class="combobox form-control">
+
+  <option
+    *ngFor="let item of itemsSource"
+    [ngValue]="getValueFor(item)"
+  >{{ getDisplayValueFor(item) }}</option>
+
+</select>
+
+<button
+  (click)="onButtonAddClicked()"
+  [disabled]="itemsSource.length === 0"
+  class="btn btn-primary mt-2 mb-4" type="button"
+>Add</button>
+

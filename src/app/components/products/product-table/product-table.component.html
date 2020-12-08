@@ -1,1 +1,23 @@
-<p>product-table works!</p>
+<table class="table table-stripped">
+
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Weight</th>
+      <th>Price</th>
+      <th>Enabled</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>{{ model.description }}</td>
+      <td>{{ model.weight }}</td>
+      <td>{{ model.price | currency }}</td>
+      <td>{{ model.isEnabled ? 'Yes' : 'No' }}</td>
+      <td>{{ model.category.title }}</td>
+    </tr>
+  </tbody>
+
+</table>

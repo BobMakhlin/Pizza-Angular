@@ -1,0 +1,10 @@
+<ul class="list-group">
+
+    <li
+      *ngFor="let ingredient of ingredients"
+      class="list-group-item"
+    >
+        <app-ingredient-small [model]="ingredient"></app-ingredient-small>
+    </li>
+
+</ul>

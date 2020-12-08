@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
@@ -57,6 +57,11 @@ import { MessageComponent } from './components/messages/message/message.componen
 import { FontAwesomeIconsModule } from './fontawesome-icons/fontawesome-icons.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GoBackComponent } from './components/go-back/go-back.component';
+import { ComboboxFormControlComponent } from './components/combobox-form-control/combobox-form-control.component';
+import { ProductIngredientsComponent } from './components/products/product-ingredients/product-ingredients.component';
+import { ProductShortTableComponent } from './components/products/product-short-table/product-short-table.component';
+import { IngredientSmallComponent } from './components/ingredients/ingredient-small/ingredient-small.component';
+import { IngredientSmallListComponent } from './components/ingredients/ingredient-small-list/ingredient-small-list.component';
 
 
 @NgModule({
@@ -109,6 +114,11 @@ import { GoBackComponent } from './components/go-back/go-back.component';
     MessageListComponent,
     MessageComponent,
     GoBackComponent,
+    ComboboxFormControlComponent,
+    ProductIngredientsComponent,
+    ProductShortTableComponent,
+    IngredientSmallComponent,
+    IngredientSmallListComponent,
   ],
   imports: [
     BrowserModule,

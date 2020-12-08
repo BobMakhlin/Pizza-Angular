@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/crud/api-crud/product.service';
+import { MessagesService } from 'src/app/services/messages.service';
 
 @Component({
   selector: 'app-products',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor() { }
+  public productList: Product[];
 
-  ngOnInit(): void {
+
+  constructor(
+    private m_productService: ProductService,
+    private m_messagesService: MessagesService
+  ) { }
+
+
+  public ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  public handleProductEnablingOrDisabling(product: Product): void {
+    this.m_productService.putPartially(product.id, product)
+      .subscribe(
+        _ => this.m_messagesService.addMessage('Success!'),
+        _ => this.m_messagesService.addMessage('Error...')
+      );
+  }
+
+
+  private loadProducts(): void {
+    this.m_productService.getAll()
+      .subscribe(products => this.productList = products);
   }
 
 }

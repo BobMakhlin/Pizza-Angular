@@ -1,1 +1,21 @@
-<p>product-add works!</p>
+<div *ngIf="isPageLoaded(); else loadingBlock">
+
+  <app-product-form
+    [product]="product"
+    [categoryList]="categoryList"
+    [ingredientList]="ingredientList"
+
+    (onFormSubmit)="handleFormSubmit($event)"
+  ></app-product-form>
+
+
+  <div class="mt-4 text-right">
+    <app-go-back></app-go-back>
+  </div>
+
+</div>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

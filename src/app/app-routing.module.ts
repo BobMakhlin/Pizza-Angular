@@ -8,6 +8,9 @@ import { CategoryEditComponent } from './pages/categories/category-edit/category
 import { HomeComponent } from './pages/home/home.component';
 import { IngredientsComponent } from './pages/ingredients/ingredients/ingredients.component';
 import { OrdersComponent } from './pages/orders/orders/orders.component';
+import { ProductAddComponent } from './pages/products/product-add/product-add.component';
+import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
+import { ProductEditComponent } from './pages/products/product-edit/product-edit.component';
 import { ProductsComponent } from './pages/products/products/products.component';
 import { StatusesComponent } from './pages/statuses/statuses/statuses.component';
 
@@ -20,10 +23,15 @@ const routes: Routes = [
   { path: 'categories/details/:id', component: CategoryDetailsComponent },
   { path: 'categories/edit/:id', component: CategoryEditComponent },
   { path: 'categories/add', component: CategoryAddComponent },
-  
+
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/details/:id', component: ProductDetailsComponent },
+  { path: 'products/edit/:id', component: ProductEditComponent },
+  { path: 'products/add', component: ProductAddComponent },
+
+
   { path: 'ingredients', component: IngredientsComponent },
   { path: 'statuses', component: StatusesComponent },
-  { path: 'products', component: ProductsComponent },
   { path: 'orders', component: OrdersComponent },
 ];
 

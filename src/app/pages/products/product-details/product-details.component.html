@@ -1,1 +1,56 @@
-<p>product-details works!</p>
+<ng-container *ngIf="product; else loadingBlock">
+
+    <div class="row product">
+
+        <div class="col-4">
+            <img #productImage
+              [src]="getProductImagePath()"
+              (error)="productImage.src = imagePathService.getPlaceholder()"
+              class="img-fluid product__img"
+            />
+        </div>
+        <div class="col-8">
+            <h2 class="product__title">{{product.title}}</h2>
+
+            <div class="product-card card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.price}} ₴</h5>
+                    <hr />
+
+                    <ul class="card-text card__ingredient-list mb-4">
+                      <ng-container *ngFor="let ingredient of product.ingredients">
+
+                        <li
+                          [ngbPopover]="ingredientPop"
+                          placement="left"
+                          class="card__ingredient"
+                        >{{ingredient.title}}</li>
+
+                        <!-- place pop at the center and make link beautifuler (beautiful link) -->
+
+                        <ng-template #ingredientPop>
+                          <a class="orange-link" routerLink="/ingredients/edit/{{ingredient.id}}">
+                            <strong>Go!</strong>
+                          </a>
+                        </ng-template>
+
+                      </ng-container>
+                    </ul>
+
+
+                    <div class="product-card__bottom-line">
+                        <button type="button" class="btn btn-orange text-uppercase">В корзину</button>
+
+                        <span class="product__weight">{{product.weight}} г</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</ng-container>
+
+<ng-template #loadingBlock>
+    <app-loading></app-loading>
+</ng-template>

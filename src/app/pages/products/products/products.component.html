@@ -1,1 +1,23 @@
-<p>products works!</p>
+<h2 class="page-title">Products</h2>
+
+<p class="text-center mb-5">
+  <a routerLink="/products/add" class="btn btn-primary">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create New
+  </a>
+</p>
+
+
+<ng-container *ngIf="productList; else loadingBlock">
+
+  <app-product-list
+    [models]="productList"
+    (onModelEnabledOrDisabled)="handleProductEnablingOrDisabling($event)"
+  ></app-product-list>
+
+</ng-container>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

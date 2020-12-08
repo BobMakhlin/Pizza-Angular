@@ -1,0 +1,43 @@
+.product__img {
+  display: block;
+  margin: 0 auto;
+}
+
+.product__title {
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Pelmeshka', 'sans-serif';
+}
+
+.product__labels {
+  text-align: center;
+}
+
+.product__badge {
+  font-size: 1em;
+  margin: 0;
+}
+
+.product-card {
+  margin: 0 auto;
+  width: 22em;
+}
+
+.product-card__bottom-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product__weight {
+  font-size: 1.15em;
+  font-weight: bold;
+}
+
+.card__ingredient-list {
+  padding-left: 1.25em;
+}
+
+.card__ingredient {
+  cursor: pointer;
+}

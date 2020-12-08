@@ -9,6 +9,19 @@
   margin-bottom: 2rem;
 }
 
+.hidden-link {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.orange-link, .orange-link:hover {
+  color: #fc9e4e;
+}
+
+.btn-orange {
+  background: #fc9e4e;
+  letter-spacing: 0.45px;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
