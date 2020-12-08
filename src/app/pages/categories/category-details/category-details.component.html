@@ -1,5 +1,13 @@
-<h2 class="page-title">Category info</h2>
+<ng-container *ngIf="category; else loadingBlock">
 
-<app-category-table class="mt-5" [category]="category"></app-category-table>
+    <h2 class="page-title">Category info</h2>
 
-<app-go-back class="mt-2 float-right"></app-go-back>
+    <app-category-table class="mt-5" [category]="category"></app-category-table>
+
+    <app-go-back class="mt-2 float-right"></app-go-back>
+
+</ng-container>
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>
