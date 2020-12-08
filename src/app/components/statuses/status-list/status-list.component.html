@@ -1,1 +1,8 @@
-<p>status-list works!</p>
+<div class="row">
+    <div *ngFor="let model of models" class="col-3 mb-4">
+
+        <app-status-card [model]="model">
+        </app-status-card>
+
+    </div>
+</div>

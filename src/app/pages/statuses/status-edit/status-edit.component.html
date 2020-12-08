@@ -1,1 +1,21 @@
-<p>status-edit works!</p>
+<div *ngIf="status; else loadingBlock">
+
+  <app-category-form
+    [model]="status"
+    (onFormSubmit)="handleFormSubmit($event)"
+  ></app-category-form>
+
+  <div class="mt-4 text-right">
+    <app-go-back></app-go-back>
+  </div>
+
+</div>
+
+
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>
+
+

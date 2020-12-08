@@ -1,1 +1,12 @@
-<p>status-details works!</p>
+<ng-container *ngIf="status; else loadingBlock">
+    <h2 class="page-title">Category info</h2>
+
+    <app-status-table class="mt-5" [status]="status"></app-status-table>
+
+    <app-go-back class="mt-2 float-right"></app-go-back>
+</ng-container>
+
+
+<ng-template #loadingBlock>
+    <app-loading></app-loading>
+</ng-template>

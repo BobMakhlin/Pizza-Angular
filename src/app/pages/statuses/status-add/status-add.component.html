@@ -1,1 +1,8 @@
-<p>status-add works!</p>
+<app-category-form
+  [model]="status"
+  (onFormSubmit)="handleFormSubmit($event)"
+></app-category-form>
+
+<div class="mt-4 text-right">
+  <app-go-back></app-go-back>
+</div>

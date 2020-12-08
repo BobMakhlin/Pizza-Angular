@@ -1,1 +1,20 @@
-<p>statuses works!</p>
+<h2 class="page-title">Statuses</h2>
+
+<p class="text-center mb-5">
+  <a routerLink="/statuses/add" class="btn btn-primary">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create New
+  </a>
+</p>
+
+
+<ng-container *ngIf="statusList; else loadingBlock">
+
+  <app-status-list [models]="statusList"></app-status-list>
+
+</ng-container>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

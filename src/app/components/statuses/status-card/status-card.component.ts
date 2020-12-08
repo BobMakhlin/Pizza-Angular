@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Status } from 'src/app/models/status';
 
 @Component({
   selector: 'app-status-card',
   templateUrl: './status-card.component.html',
   styleUrls: ['./status-card.component.css']
 })
-export class StatusCardComponent implements OnInit {
+export class StatusCardComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Input() model: Status;
 
 }

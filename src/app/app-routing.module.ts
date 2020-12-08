@@ -12,6 +12,9 @@ import { ProductAddComponent } from './pages/products/product-add/product-add.co
 import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
 import { ProductEditComponent } from './pages/products/product-edit/product-edit.component';
 import { ProductsComponent } from './pages/products/products/products.component';
+import { StatusAddComponent } from './pages/statuses/status-add/status-add.component';
+import { StatusDetailsComponent } from './pages/statuses/status-details/status-details.component';
+import { StatusEditComponent } from './pages/statuses/status-edit/status-edit.component';
 import { StatusesComponent } from './pages/statuses/statuses/statuses.component';
 
 const routes: Routes = [
@@ -29,9 +32,13 @@ const routes: Routes = [
   { path: 'products/edit/:id', component: ProductEditComponent },
   { path: 'products/add', component: ProductAddComponent },
 
-
   { path: 'ingredients', component: IngredientsComponent },
+
   { path: 'statuses', component: StatusesComponent },
+  { path: 'statuses/details/:id', component: StatusDetailsComponent },
+  { path: 'statuses/edit/:id', component: StatusEditComponent },
+  { path: 'statuses/add', component: StatusAddComponent },
+
   { path: 'orders', component: OrdersComponent },
 ];
 

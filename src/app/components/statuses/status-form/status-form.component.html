@@ -1,1 +1,23 @@
-<p>status-form works!</p>
+<form (ngSubmit)="handleFormSubmit()" [formGroup]="mainFormGroup">
+
+  <div class="form-group">
+      <label for="title">Title</label>
+      <input formControlName="title"
+        type="text" class="form-control" id="title" placeholder="Enter title"
+      >
+
+      <ng-container *ngIf="formTitle.touched">
+          <div class="alert alert-danger mt-2" *ngIf="formTitle.hasError('required')">
+              The title is required
+          </div>
+
+          <div class="alert alert-danger mt-2" *ngIf="formTitle.hasError('maxlength')">
+              You've entered title of length {{formTitle.value.length}} signs.
+              But max length is {{formTitle.errors.maxlength.requiredLength}} signs
+          </div>
+      </ng-container>
+  </div>
+
+  <button [disabled]="mainFormGroup.invalid" class="btn btn-primary">Submit</button>
+
+</form>
