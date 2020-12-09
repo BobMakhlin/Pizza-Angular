@@ -1,0 +1,9 @@
+.card-img-top {
+  width: 20%;
+  margin: 0 auto;
+  margin-top: 0.5em;
+}
+
+.card-body {
+  padding-top: 0.5em !important;
+}

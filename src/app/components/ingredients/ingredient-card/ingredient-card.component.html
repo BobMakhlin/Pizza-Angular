@@ -1,1 +1,26 @@
-<p>ingredient-card works!</p>
+<div class="card" style="width: 22rem;">
+  <img #cardImage
+    [src]="getIngredientImagePath()"
+    (error)="cardImage.src = imagePathService.getPlaceholder()"
+    class="card-img-top"
+  >
+
+  <div class="card-body">
+      <h6 class="card-title text-center">{{model.title}}</h6>
+
+      <div class="text-center mb-2 mt-4">
+        <mat-slide-toggle [(ngModel)]="model.isEnabled" (change)="handleSliderValueChange()">
+        </mat-slide-toggle>
+      </div>
+  </div>
+
+  <div class="btn-group d-block text-center mb-2" role="group">
+      <a routerLink="/ingredients/details/{{model.id}}" class="btn btn-sm btn-secondary">
+          <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      </a>
+
+      <a routerLink="/ingredients/edit/{{model.id}}" type="button" class="btn btn-sm btn-secondary">
+          <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+      </a>
+  </div>
+</div>

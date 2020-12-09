@@ -1,1 +1,23 @@
-<p>ingredients works!</p>
+<h2 class="page-title">Ingredients</h2>
+
+<p class="text-center mb-5">
+  <a routerLink="/ingredients/add" class="btn btn-primary">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create New
+  </a>
+</p>
+
+
+<ng-container *ngIf="ingredientList; else loadingBlock">
+
+  <app-ingredient-list
+    [models]="ingredientList"
+    (onModelEnabledOrDisabled)="handleIngredientEnablingOrDisabling($event)"
+  ></app-ingredient-list>
+
+</ng-container>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

@@ -1,1 +1,16 @@
-<p>ingredient-table works!</p>
+<table class="table table-stripped">
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Enabled</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>{{ingredient.title}}</td>
+          <td>{{ingredient.price | currency}}</td>
+          <td>{{ingredient.isEnabled ? 'Yes' : 'No'}}</td>
+      </tr>
+  </tbody>
+</table>

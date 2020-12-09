@@ -1,1 +1,8 @@
-<p>ingredient-add works!</p>
+<app-ingredient-form
+    [model]="ingredient"
+    (onFormSubmit)="handleFormSubmit($event)"
+></app-ingredient-form>
+
+<div class="mt-4 text-right">
+  <app-go-back></app-go-back>
+</div>

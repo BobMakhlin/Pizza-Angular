@@ -6,6 +6,9 @@ import { CategoryAddComponent } from './pages/categories/category-add/category-a
 import { CategoryDetailsComponent } from './pages/categories/category-details/category-details.component';
 import { CategoryEditComponent } from './pages/categories/category-edit/category-edit.component';
 import { HomeComponent } from './pages/home/home.component';
+import { IngredientAddComponent } from './pages/ingredients/ingredient-add/ingredient-add.component';
+import { IngredientDetailsComponent } from './pages/ingredients/ingredient-details/ingredient-details.component';
+import { IngredientEditComponent } from './pages/ingredients/ingredient-edit/ingredient-edit.component';
 import { IngredientsComponent } from './pages/ingredients/ingredients/ingredients.component';
 import { OrdersComponent } from './pages/orders/orders/orders.component';
 import { ProductAddComponent } from './pages/products/product-add/product-add.component';
@@ -33,6 +36,9 @@ const routes: Routes = [
   { path: 'products/add', component: ProductAddComponent },
 
   { path: 'ingredients', component: IngredientsComponent },
+  { path: 'ingredients/details/:id', component: IngredientDetailsComponent },
+  { path: 'ingredients/edit/:id', component: IngredientEditComponent },
+  { path: 'ingredients/add', component: IngredientAddComponent },
 
   { path: 'statuses', component: StatusesComponent },
   { path: 'statuses/details/:id', component: StatusDetailsComponent },

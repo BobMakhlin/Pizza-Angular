@@ -1,1 +1,12 @@
-<p>ingredient-list works!</p>
+
+<div class="row">
+  <div class="col-4 mb-4" *ngFor="let model of models">
+
+    <app-ingredient-card
+      [model]="model"
+      (onModelEnabledOrDisabled)="onModelEnabledOrDisabled.emit(model)"
+    ></app-ingredient-card>
+
+  </div>
+</div>
+

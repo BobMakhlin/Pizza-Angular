@@ -1,1 +1,14 @@
-<p>ingredient-details works!</p>
+<ng-container *ngIf="ingredient; else loadingBlock">
+
+    <h2 class="page-title">Ingredient info</h2>
+
+    <app-ingredient-table class="mt-5" [ingredient]="ingredient"></app-ingredient-table>
+
+    <app-go-back class="mt-2 float-right"></app-go-back>
+
+</ng-container>
+
+<ng-template #loadingBlock>
+    <app-loading></app-loading>
+</ng-template>
+  

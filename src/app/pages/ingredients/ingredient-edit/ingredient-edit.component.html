@@ -1,1 +1,19 @@
-<p>ingredient-edit works!</p>
+<div *ngIf="ingredient; else loadingBlock">
+
+  <app-ingredient-form
+    [model]="ingredient"
+    (onFormSubmit)="handleFormSubmit($event)"
+  ></app-ingredient-form>
+
+  <div class="mt-4 text-right">
+    <app-go-back></app-go-back>
+  </div>
+
+</div>
+
+
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>
