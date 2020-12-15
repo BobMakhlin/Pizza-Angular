@@ -1,5 +1,5 @@
-// const pizzaApiRoot: string = 'https://pizzastep.pp.ua:44306/api';
-const pizzaApiRoot: string = 'https://localhost:44306/api';
+const pizzaApiRoot: string = 'https://pizzastep.pp.ua:44306/api';
+// const pizzaApiRoot: string = 'https://localhost:44306/api';
 
 
 export const urls = {
