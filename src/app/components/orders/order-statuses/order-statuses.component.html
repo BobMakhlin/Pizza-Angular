@@ -1,0 +1,45 @@
+<div class="statuses__combobox">
+  <select
+    [(ngModel)]="selectedStatus" [ngModelOptions]="{standalone: true}"
+    class="combobox form-control">
+
+    <option
+      *ngFor="let status of statuses"
+      [ngValue]="status"
+    >{{ status.title }}</option>
+  </select>
+
+  <button
+    (click)="addStatusToOrder()"
+    [disabled]="!selectedStatus"
+    class="btn btn-primary mt-2 mb-4" type="button"
+  >Add</button>
+</div>
+
+
+<div class="alert alert-warning mt-2" *ngIf="statusesFormArray.hasError('required')">
+  <strong>Note:</strong> The order must have at least one status
+</div>
+
+
+<div class="statuses__list">
+  <table
+    *ngIf="statusesFormArray.controls.length > 0"
+    class="table table-sm table-stripped text-center"
+  >
+    <thead>
+      <tr>
+        <th class="border-0 text-uppercase small font-weight-bold">Title</th>
+        <th class="border-0 text-uppercase small font-weight-bold">Time</th>
+        <th class="border-0 text-uppercase small font-weight-bold"></th>
+      </tr>
+    </thead>
+
+    <tbody
+      app-order-statuses-rows
+      [statusesFormArray]="statusesFormArray"
+    ></tbody>
+  </table>
+</div>
+
+

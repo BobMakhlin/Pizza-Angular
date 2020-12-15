@@ -1,1 +1,15 @@
-<p>order-details works!</p>
+<ng-container *ngIf="isLoaded(); else loadingBlock">
+
+  <h2 class="page-title">Order info</h2>
+
+  <app-order-table
+    [order]="order"
+  ></app-order-table>
+
+  <app-go-back class="mt-2 mb-5 float-right"></app-go-back>
+
+</ng-container>
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

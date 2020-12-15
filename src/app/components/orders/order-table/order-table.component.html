@@ -1,1 +1,61 @@
-<p>order-table works!</p>
+<table class="table">
+    <tbody>
+
+        <tr>
+            <th>Order time</th>
+            <td>{{order.orderTime | date: 'short'}}</td>
+        </tr>
+
+        <tr>
+            <th>Delivery time</th>
+            <td>{{order.deliveryTime | date: 'short'}}</td>
+        </tr>
+
+        <tr>
+            <th>Customer name</th>
+            <td>{{order.customerName}}</td>
+        </tr>
+
+        <tr>
+            <th>Customer phone</th>
+            <td>{{order.customerPhone}}</td>
+        </tr>
+
+        <tr>
+            <th>Customer address</th>
+            <td>{{order.customerAddress}}</td>
+        </tr>
+
+        <tr>
+            <th>Comment</th>
+            <td>{{order.comment}}</td>
+        </tr>
+
+        <tr>
+            <th>Positions</th>
+            <td>
+              <app-order-position-table
+                *ngIf="order.orderPosition"
+                [orderPositions]="order.orderPosition"
+              ></app-order-position-table>
+            </td>
+        </tr>
+
+        <tr>
+          <th>Statuses</th>
+          <td>
+            <app-order-status-table
+              *ngIf="order.orderStatus"
+              [orderStatuses]="order.orderStatus"
+              [currentOrderStatus]="currentOrderStatus"
+            ></app-order-status-table>
+          </td>
+        </tr>
+
+        <tr>
+          <th>Sum</th>
+          <td>{{getSum() | currency}}</td>
+        </tr>
+
+    </tbody>
+</table>

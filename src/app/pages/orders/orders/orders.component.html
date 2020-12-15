@@ -1,1 +1,22 @@
-<p>orders works!</p>
+<h2 class="page-title">Orders</h2>
+
+<p class="text-center mb-5">
+  <a routerLink="/orders/add" class="btn btn-primary">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create New
+  </a>
+</p>
+
+<ng-container *ngIf="isLoaded(); else loadingBlock">
+
+  <app-orders-table
+    [orders]="orders"
+    [statuses]="statuses"
+  ></app-orders-table>
+
+</ng-container>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

@@ -1,0 +1,33 @@
+<ng-container *ngIf="selectedStatus">
+  <th scope="row">{{ number }}</th>
+  <td>{{order.orderTime | date: 'short'}}</td>
+  <td>{{order.deliveryTime | date: 'short'}}</td>
+  <td>{{order.customerName}}</td>
+  <td>{{order.customerPhone}}</td>
+  <td>
+    <select #statusesSelect
+      [(ngModel)]="selectedStatus" [compareWith]="compareOrders"
+      (ngModelChange)="onStatusChanged()"
+
+      class="form-control"
+    >
+        <option value="" disabled>Select the status...</option>
+
+        <option
+          *ngFor="let status of statuses"
+          [ngValue]="status"
+        >{{status.title}}</option>
+    </select>
+  </td>
+  <td>
+    <div class="btn-group" role="group">
+      <a routerLink="/orders/details/{{order.id}}" class="btn btn-sm btn-secondary">
+        <fa-icon [icon]="['fas', 'info-circle']"></fa-icon>
+      </a>
+
+      <a routerLink="/orders/edit/{{order.id}}" type="button" class="btn btn-sm btn-secondary">
+        <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+      </a>
+    </div>
+  </td>
+</ng-container>

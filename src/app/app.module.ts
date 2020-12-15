@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,10 +33,7 @@ import { StatusTableComponent } from './components/statuses/status-table/status-
 import { StatusDetailsComponent } from './pages/statuses/status-details/status-details.component';
 import { StatusEditComponent } from './pages/statuses/status-edit/status-edit.component';
 import { StatusAddComponent } from './pages/statuses/status-add/status-add.component';
-import { OrderCardComponent } from './components/orders/order-card/order-card.component';
-import { OrderListComponent } from './components/orders/order-list/order-list.component';
 import { OrderFormComponent } from './components/orders/order-form/order-form.component';
-import { OrderTableComponent } from './components/orders/order-table/order-table.component';
 import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
 import { OrderEditComponent } from './pages/orders/order-edit/order-edit.component';
 import { OrderAddComponent } from './pages/orders/order-add/order-add.component';
@@ -60,8 +59,17 @@ import { GoBackComponent } from './components/go-back/go-back.component';
 import { ComboboxFormControlComponent } from './components/combobox-form-control/combobox-form-control.component';
 import { ProductIngredientsComponent } from './components/products/product-ingredients/product-ingredients.component';
 import { ProductShortTableComponent } from './components/products/product-short-table/product-short-table.component';
-import { IngredientSmallComponent } from './components/ingredients/ingredient-small/ingredient-small.component';
-import { IngredientSmallListComponent } from './components/ingredients/ingredient-small-list/ingredient-small-list.component';
+import { OrdersTableComponent } from './components/orders/orders-table/orders-table.component';
+import { OrdersTableRowComponent } from './components/orders/orders-table-row/orders-table-row.component';
+import { OrderTableComponent } from './components/orders/order-table/order-table.component';
+import { PopupLinkComponent } from './components/popup-link/popup-link.component';
+import { OrderPositionTableComponent } from './components/order-positions/order-position-table/order-position-table.component';
+import { OrderStatusTableComponent } from './components/order-status/order-status-table/order-status-table.component';
+import { OrderStatusesComponent } from './components/orders/order-statuses/order-statuses.component';
+import { OrderPositionsComponent } from './components/orders/order-positions/order-positions.component';
+import { OrderPositionsRowsComponent } from './components/orders/order-positions-rows/order-positions-rows.component';
+import { OrderTotalPriceComponent } from './components/orders/order-total-price/order-total-price.component';
+import { OrderStatusesRowsComponent } from './components/orders/order-statuses-rows/order-statuses-rows.component';
 
 
 @NgModule({
@@ -91,10 +99,8 @@ import { IngredientSmallListComponent } from './components/ingredients/ingredien
     StatusDetailsComponent,
     StatusEditComponent,
     StatusAddComponent,
-    OrderCardComponent,
-    OrderListComponent,
     OrderFormComponent,
-    OrderTableComponent,
+    OrdersTableComponent,
     OrderDetailsComponent,
     OrderEditComponent,
     OrderAddComponent,
@@ -117,8 +123,16 @@ import { IngredientSmallListComponent } from './components/ingredients/ingredien
     ComboboxFormControlComponent,
     ProductIngredientsComponent,
     ProductShortTableComponent,
-    IngredientSmallComponent,
-    IngredientSmallListComponent,
+    OrdersTableRowComponent,
+    OrderTableComponent,
+    PopupLinkComponent,
+    OrderPositionTableComponent,
+    OrderStatusTableComponent,
+    OrderStatusesComponent,
+    OrderPositionsComponent,
+    OrderPositionsRowsComponent,
+    OrderTotalPriceComponent,
+    OrderStatusesRowsComponent
   ],
   imports: [
     BrowserModule,
@@ -130,7 +144,11 @@ import { IngredientSmallListComponent } from './components/ingredients/ingredien
     MatSlideToggleModule,
     ReactiveFormsModule,
     FontAwesomeIconsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [NavBarComponent, AppComponent]

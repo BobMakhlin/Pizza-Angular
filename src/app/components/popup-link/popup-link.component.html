@@ -1,0 +1,9 @@
+<div [ngbPopover]="ingredientPop" placement="left">
+    <ng-content></ng-content>
+</div>
+
+<ng-template #ingredientPop>
+    <a class="orange-link" [routerLink]="link">
+        <strong>Go!</strong>
+    </a>
+</ng-template>

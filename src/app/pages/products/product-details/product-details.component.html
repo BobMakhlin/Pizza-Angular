@@ -21,18 +21,9 @@
                       <ng-container *ngFor="let ingredient of product.ingredients">
 
                         <li
-                          [ngbPopover]="ingredientPop"
-                          placement="left"
+                          app-popup-link [link]="'/ingredients/edit/' + ingredient.id"
                           class="card__ingredient"
                         >{{ingredient.title}}</li>
-
-                        <!-- place pop at the center and make link beautifuler (beautiful link) -->
-
-                        <ng-template #ingredientPop>
-                          <a class="orange-link" routerLink="/ingredients/edit/{{ingredient.id}}">
-                            <strong>Go!</strong>
-                          </a>
-                        </ng-template>
 
                       </ng-container>
                     </ul>

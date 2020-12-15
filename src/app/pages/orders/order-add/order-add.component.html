@@ -1,1 +1,19 @@
-<p>order-add works!</p>
+<div *ngIf="isLoaded(); else loadingBlock">
+
+  <app-order-form
+    [model]="order"
+    [products]="productList"
+    [statuses]="statusList"
+    (onFormSubmit)="handleFormSubmit($event)"
+  ></app-order-form>
+
+  <div class="mt-4 text-right">
+    <app-go-back></app-go-back>
+  </div>
+
+</div>
+
+
+<ng-template #loadingBlock>
+  <app-loading></app-loading>
+</ng-template>

@@ -10,6 +10,9 @@ import { IngredientAddComponent } from './pages/ingredients/ingredient-add/ingre
 import { IngredientDetailsComponent } from './pages/ingredients/ingredient-details/ingredient-details.component';
 import { IngredientEditComponent } from './pages/ingredients/ingredient-edit/ingredient-edit.component';
 import { IngredientsComponent } from './pages/ingredients/ingredients/ingredients.component';
+import { OrderAddComponent } from './pages/orders/order-add/order-add.component';
+import { OrderDetailsComponent } from './pages/orders/order-details/order-details.component';
+import { OrderEditComponent } from './pages/orders/order-edit/order-edit.component';
 import { OrdersComponent } from './pages/orders/orders/orders.component';
 import { ProductAddComponent } from './pages/products/product-add/product-add.component';
 import { ProductDetailsComponent } from './pages/products/product-details/product-details.component';
@@ -46,6 +49,9 @@ const routes: Routes = [
   { path: 'statuses/add', component: StatusAddComponent },
 
   { path: 'orders', component: OrdersComponent },
+  { path: 'orders/details/:id', component: OrderDetailsComponent },
+  { path: 'orders/edit/:id', component: OrderEditComponent },
+  { path: 'orders/add', component: OrderAddComponent },
 ];
 
 @NgModule({

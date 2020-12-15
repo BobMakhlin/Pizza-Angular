@@ -1,0 +1,17 @@
+<table class="table table-sm table-bordered table-positions">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let position of orderPositions">
+            <td>{{position.productTitle}}</td>
+            <td>{{position.productPrice | currency}}</td>
+            <td>{{position.amount}}</td>
+        </tr>
+    </tbody>
+</table>

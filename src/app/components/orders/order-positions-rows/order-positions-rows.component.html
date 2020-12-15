@@ -1,0 +1,22 @@
+<tr
+  *ngFor="let positionGroup of positionsFormArray.controls"
+  [formGroup]="positionGroup"
+>
+    <td>{{ getOrderPosition(positionGroup).productTitle }}</td>
+
+    <td>{{ getOrderPosition(positionGroup).productPrice | currency }}</td>
+
+    <td>
+        <div class="form-group mb-0">
+            <input formControlName="amount" type="number" class="form-control" placeholder="Enter the amount">
+        </div>
+    </td>
+
+    <td>{{ getOrderPositionTotalPrice(positionGroup) | currency }}</td>
+
+    <td>
+        <button (click)="deletePosition(positionGroup)" class="close" type="button">
+          <span>&times;</span>
+        </button>
+    </td>
+</tr>
