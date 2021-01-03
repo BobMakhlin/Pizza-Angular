@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Message } from '../models/message';
-import maxBy from 'lodash-es/maxby';
+import maxBy from 'lodash-es/maxBy';
 
 @Injectable({
   providedIn: 'root'

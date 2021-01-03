@@ -3,7 +3,9 @@ import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-go-back',
-  templateUrl: './go-back.component.html',
+  template: `
+    <button (click)="goBack()" class="btn btn-secondary">← Go back</button>
+  `,
   styleUrls: ['./go-back.component.css']
 })
 export class GoBackComponent {

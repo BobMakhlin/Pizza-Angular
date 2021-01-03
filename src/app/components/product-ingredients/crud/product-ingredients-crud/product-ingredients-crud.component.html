@@ -1,0 +1,11 @@
+<button
+  (click)="createProductIngredient()"
+  type="button"
+  class="btn btn-primary mb-3"
+>
+  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+  Create New
+</button>
+
+<app-product-ingredients-table [productIngredients]="productIngredients">
+</app-product-ingredients-table>

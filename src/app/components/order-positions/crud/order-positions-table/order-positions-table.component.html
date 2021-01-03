@@ -1,0 +1,47 @@
+<table
+  *ngIf="orderPositions.length !== 0; else noPositionsBlock"
+  class="table table-sm table-bordered text-center table-vertical-center"
+>
+  <thead>
+    <tr>
+      <th class="border-0 text-uppercase small font-weight-bold">Title</th>
+      <th class="border-0 text-uppercase small font-weight-bold">Price</th>
+      <th class="border-0 text-uppercase small font-weight-bold">Amount</th>
+      <th class="border-0 text-uppercase small font-weight-bold">
+        Total price
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let position of orderPositions">
+      <td>{{ position.productTitle }}</td>
+      <td>{{ position.productPrice }}</td>
+      <td>{{ position.amount }}</td>
+      <td>{{ position.productPrice * position.amount }}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Actions with order">
+          <button
+            (click)="editOrderPosition(position)"
+            type="button"
+            class="btn btn-primary btn-sm"
+          >
+            <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+          </button>
+
+          <button
+            (click)="removeOrderPosition(position)"
+            type="button"
+            class="btn btn-danger btn-sm"
+          >
+            <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+          </button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noPositionsBlock>
+  <p>There are no positions...</p>
+</ng-template>

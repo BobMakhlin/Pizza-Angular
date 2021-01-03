@@ -1,0 +1,11 @@
+<button
+  (click)="createOrderStatus()"
+  type="button"
+  class="btn btn-primary mb-3"
+>
+  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+  Create New
+</button>
+
+<app-order-statuses-table [orderStatuses]="orderStatuses">
+</app-order-statuses-table>

@@ -2,10 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
-import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,8 +53,6 @@ import { MessageComponent } from './components/messages/message/message.componen
 import { FontAwesomeIconsModule } from './fontawesome-icons/fontawesome-icons.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { GoBackComponent } from './components/go-back/go-back.component';
-import { ComboboxFormControlComponent } from './components/combobox-form-control/combobox-form-control.component';
-import { ProductIngredientsComponent } from './components/products/product-ingredients/product-ingredients.component';
 import { ProductShortTableComponent } from './components/products/product-short-table/product-short-table.component';
 import { OrdersTableComponent } from './components/orders/orders-table/orders-table.component';
 import { OrdersTableRowComponent } from './components/orders/orders-table-row/orders-table-row.component';
@@ -65,12 +60,20 @@ import { OrderTableComponent } from './components/orders/order-table/order-table
 import { PopupLinkComponent } from './components/popup-link/popup-link.component';
 import { OrderPositionTableComponent } from './components/order-positions/order-position-table/order-position-table.component';
 import { OrderStatusTableComponent } from './components/order-status/order-status-table/order-status-table.component';
-import { OrderStatusesComponent } from './components/orders/order-statuses/order-statuses.component';
-import { OrderPositionsComponent } from './components/orders/order-positions/order-positions.component';
-import { OrderPositionsRowsComponent } from './components/orders/order-positions-rows/order-positions-rows.component';
 import { OrderTotalPriceComponent } from './components/orders/order-total-price/order-total-price.component';
-import { OrderStatusesRowsComponent } from './components/orders/order-statuses-rows/order-statuses-rows.component';
-
+import { MAT_DIALOG_DEFAULT_OPTIONS} from '@angular/material/dialog';
+import { MaterialModule } from './modules/material/material.module';
+import { OrderPositionsTableComponent } from './components/order-positions/crud/order-positions-table/order-positions-table.component';
+import { OrderPositionAddDialogComponent } from './components/order-positions/dialogs/order-position-add.dialog/order-position-add-dialog.component';
+import { OrderPositionsCrudComponent } from './components/order-positions/crud/order-positions-crud/order-positions-crud.component';
+import { OrderPositionEditDialogComponent } from './components/order-positions/dialogs/order-position-edit-dialog/order-position-edit-dialog.component';
+import { OrderStatusesCrudComponent } from './components/order-status/crud/order-statuses-crud/order-statuses-crud.component';
+import { OrderStatusesTableComponent } from './components/order-status/crud/order-statuses-table/order-statuses-table.component';
+import { OrderStatusAddDialogComponent } from './components/order-status/dialogs/order-status-add-dialog/order-status-add-dialog.component';
+import { OrderStatusEditDialogComponent } from './components/order-status/dialogs/order-status-edit-dialog/order-status-edit-dialog.component';
+import { ProductIngredientsCrudComponent } from './components/product-ingredients/crud/product-ingredients-crud/product-ingredients-crud.component';
+import { ProductIngredientsTableComponent } from './components/product-ingredients/crud/product-ingredients-table/product-ingredients-table.component';
+import { ProductIngredientAddDialogComponent } from './components/product-ingredients/dialogs/product-ingredient-add-dialog/product-ingredient-add-dialog.component';
 
 @NgModule({
   declarations: [
@@ -120,19 +123,24 @@ import { OrderStatusesRowsComponent } from './components/orders/order-statuses-r
     MessageListComponent,
     MessageComponent,
     GoBackComponent,
-    ComboboxFormControlComponent,
-    ProductIngredientsComponent,
     ProductShortTableComponent,
     OrdersTableRowComponent,
     OrderTableComponent,
     PopupLinkComponent,
     OrderPositionTableComponent,
     OrderStatusTableComponent,
-    OrderStatusesComponent,
-    OrderPositionsComponent,
-    OrderPositionsRowsComponent,
     OrderTotalPriceComponent,
-    OrderStatusesRowsComponent
+    OrderPositionsTableComponent,
+    OrderPositionAddDialogComponent,
+    OrderPositionsCrudComponent,
+    OrderPositionEditDialogComponent,
+    OrderStatusesCrudComponent,
+    OrderStatusesTableComponent,
+    OrderStatusAddDialogComponent,
+    OrderStatusEditDialogComponent,
+    ProductIngredientsCrudComponent,
+    ProductIngredientsTableComponent,
+    ProductIngredientAddDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -141,16 +149,19 @@ import { OrderStatusesRowsComponent } from './components/orders/order-statuses-r
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule,
     ReactiveFormsModule,
     FontAwesomeIconsModule,
     FontAwesomeModule,
 
-    NgxMatDatetimePickerModule,
-    NgxMatTimepickerModule,
-    MatFormFieldModule
+    MaterialModule
   ],
-  providers: [],
+  entryComponents: [
+    OrderPositionAddDialogComponent,
+    OrderPositionEditDialogComponent
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}}
+  ],
   bootstrap: [NavBarComponent, AppComponent]
 })
 export class AppModule { }

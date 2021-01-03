@@ -1,0 +1,34 @@
+<table *ngIf="orderStatuses.length !== 0; else noStatusesBlock" class="table table-sm table-bordered text-center table-vertical-center">
+    <thead>
+      <tr>
+        <th class="border-0 text-uppercase small font-weight-bold">Title</th>
+        <th class="border-0 text-uppercase small font-weight-bold">Time</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <tr *ngFor="let orderStatus of orderStatuses">
+        <td>{{ orderStatus.statusTitle }}</td>
+        <td>{{ orderStatus.time | date }}</td>
+        <td>
+          <div class="btn-group" role="group" aria-label="Actions with order">
+            <button
+              (click)="editOrderStatus(orderStatus)"
+              type="button"
+              class="btn btn-primary btn-sm"
+            >
+              <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+            </button>
+  
+            <button (click)="removeOrderStatus(orderStatus)" type="button" class="btn btn-danger btn-sm">
+              <fa-icon [icon]="['fas', 'trash-alt']"></fa-icon>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  
+<ng-template #noStatusesBlock>
+    <p>There are no statuses...</p>
+</ng-template>

@@ -1,141 +1,186 @@
-<pre>{{ mainFormGroup.value | json }}</pre>
-
 <form (ngSubmit)="handleFormSubmit()" [formGroup]="mainFormGroup">
-
   <h4 class="mb-4">Order info</h4>
 
   <div class="form-group">
-      <label for="customerName">Customer name</label>
-      <input formControlName="customerName"
-        type="text" class="form-control" id="customerName" placeholder="Enter the name"
+    <label for="customerName">Customer name</label>
+    <input
+      formControlName="customerName"
+      type="text"
+      class="form-control"
+      id="customerName"
+      placeholder="Enter the name"
+    />
+
+    <ng-container *ngIf="formCustomerName.touched">
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formCustomerName.hasError('required')"
       >
+        Customer name is required
+      </div>
 
-      <ng-container *ngIf="formCustomerName.touched">
-          <div class="alert alert-danger mt-2" *ngIf="formCustomerName.hasError('required')">
-              Customer name is required
-          </div>
-
-          <div class="alert alert-danger mt-2" *ngIf="formCustomerName.hasError('maxlength')">
-              You've entered the name of length {{formCustomerName.value.length}} signs.
-              But max length is {{formCustomerName.errors.maxlength.requiredLength}} signs
-          </div>
-      </ng-container>
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formCustomerName.hasError('maxlength')"
+      >
+        You've entered the name of length
+        {{ formCustomerName.value.length }} signs. But max length is
+        {{ formCustomerName.errors.maxlength.requiredLength }} signs
+      </div>
+    </ng-container>
   </div>
 
   <div class="form-group">
     <label for="customerPhone">Customer phone</label>
-    <input formControlName="customerPhone"
-      type="tel" class="form-control" id="customerPhone" placeholder="Enter the phone"
-    >
+    <input
+      formControlName="customerPhone"
+      type="tel"
+      class="form-control"
+      id="customerPhone"
+      placeholder="Enter the phone"
+    />
 
     <ng-container *ngIf="formCustomerPhone.touched">
-        <div class="alert alert-danger mt-2" *ngIf="formCustomerPhone.hasError('required')">
-            Customer phone is required
-        </div>
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formCustomerPhone.hasError('required')"
+      >
+        Customer phone is required
+      </div>
 
-        <div class="alert alert-danger mt-2" *ngIf="formCustomerPhone.hasError('maxlength')">
-            You've entered phone of length {{formCustomerPhone.value.length}} signs.
-            But max length is {{formCustomerPhone.errors.maxlength.requiredLength}} signs
-        </div>
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formCustomerPhone.hasError('maxlength')"
+      >
+        You've entered phone of length
+        {{ formCustomerPhone.value.length }} signs. But max length is
+        {{ formCustomerPhone.errors.maxlength.requiredLength }} signs
+      </div>
     </ng-container>
   </div>
 
   <div class="form-group">
     <label for="customerAddress">Customer address</label>
-    <input formControlName="customerAddress"
-      type="text" class="form-control" id="customerAddress" placeholder="Enter the address"
-    >
+    <input
+      formControlName="customerAddress"
+      type="text"
+      class="form-control"
+      id="customerAddress"
+      placeholder="Enter the address"
+    />
 
     <ng-container *ngIf="formCustomerAddress.touched">
-        <div class="alert alert-danger mt-2" *ngIf="formCustomerAddress.hasError('required')">
-            Customer address is required
-        </div>
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formCustomerAddress.hasError('required')"
+      >
+        Customer address is required
+      </div>
 
-        <div class="alert alert-danger mt-2" *ngIf="formCustomerAddress.hasError('maxlength')">
-            You've entered address of length {{formCustomerAddress.value.length}} signs.
-            But max length is {{formCustomerAddress.errors.maxlength.requiredLength}} signs
-        </div>
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formCustomerAddress.hasError('maxlength')"
+      >
+        You've entered address of length
+        {{ formCustomerAddress.value.length }} signs. But max length is
+        {{ formCustomerAddress.errors.maxlength.requiredLength }} signs
+      </div>
     </ng-container>
   </div>
 
   <div class="form-group">
     <label for="comment">Comment</label>
-    <textarea formControlName="comment"
-      class="form-control comment-textarea" id="comment" placeholder="Enter the comment"
+    <textarea
+      formControlName="comment"
+      class="form-control comment-textarea"
+      id="comment"
+      placeholder="Enter the comment"
     ></textarea>
 
     <ng-container *ngIf="formComment.touched">
-        <div class="alert alert-danger mt-2" *ngIf="formComment.hasError('maxlength')">
-            You've entered the comment of length {{formComment.value.length}} signs.
-            But max length is {{formComment.errors.maxlength.requiredLength}} signs
-        </div>
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formComment.hasError('maxlength')"
+      >
+        You've entered the comment of length
+        {{ formComment.value.length }} signs. But max length is
+        {{ formComment.errors.maxlength.requiredLength }} signs
+      </div>
     </ng-container>
   </div>
 
-
   <div>
-
     <div class="form-group">
       <label for="orderTime">Order time</label>
-      <input formControlName="orderTime"
-        type="date" class="form-control" id="orderTime" placeholder="Enter the order time"
-      >
+      <input
+        formControlName="orderTime"
+        type="date"
+        class="form-control"
+        id="orderTime"
+        placeholder="Enter the order time"
+      />
 
       <ng-container *ngIf="formOrderTime.touched">
-          <div class="alert alert-danger mt-2" *ngIf="formOrderTime.hasError('required')">
-              Order time is required
-          </div>
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="formOrderTime.hasError('required')"
+        >
+          Order time is required
+        </div>
       </ng-container>
     </div>
 
     <div class="form-group">
       <label for="orderTime">Delivery time</label>
-      <input formControlName="deliveryTime"
-        type="date" class="form-control" id="deliveryTime" placeholder="Enter the delivery time"
-      >
+      <input
+        formControlName="deliveryTime"
+        type="date"
+        class="form-control"
+        id="deliveryTime"
+        placeholder="Enter the delivery time"
+      />
 
       <ng-container *ngIf="formDeliveryTime.touched">
-          <div class="alert alert-danger mt-2" *ngIf="formDeliveryTime.hasError('required')">
-              Delivery time is required
-          </div>
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="formDeliveryTime.hasError('required')"
+        >
+          Delivery time is required
+        </div>
       </ng-container>
     </div>
 
-
     <ng-container *ngIf="formOrderTime.valid && formDeliveryTime.valid">
-      <div class="alert alert-danger mt-2" *ngIf="mainFormGroup.hasError('unrealOrderTime')">
-          Delivery time must be later that order time!
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="mainFormGroup.hasError('unrealOrderTime')"
+      >
+        Delivery time must be later that order time!
       </div>
     </ng-container>
   </div>
 
+  <div class="mt-5 mb-5">
+    <h4 class="mb-3">Statuses</h4>
 
-  <div class="mt-5 mb-6 statuses">
-    <h4>Statuses</h4>
+    <app-order-statuses-crud
+      [orderStatuses]="orderStatuses"
+      [statusList]="statusList"
+    ></app-order-statuses-crud>
+  </div>
 
-    <app-order-statuses
-      [statusesFormArray]="formOrderStatus"
-      [statuses]="statuses"
-    ></app-order-statuses>
+  <div class="mt-5 mb-5">
+    <h4 class="mb-3">Positions</h4>
+
+    <app-order-positions-crud
+      [orderPositions]="orderPositions"
+      [productList]="productList"
+    ></app-order-positions-crud>
+
+    <app-order-total-price class="mt-2" [orderPositions]="orderPositions">
+    </app-order-total-price>
   </div>
 
 
-  <div class="mb-6 positions">
-    <h4>Positions</h4>
-
-    <app-order-positions
-      [positionsFormArray]="formOrderPosition"
-      [products]="products"
-    ></app-order-positions>
-
-    <app-order-total-price
-      [order]="mainFormGroup.value"
-    ></app-order-total-price>
-  </div>
-
-
-
-
-  <button [disabled]="mainFormGroup.invalid" class="btn btn-success">Submit</button>
-
+  <button [disabled]="!isReadyToSend()" class="btn btn-success">Submit</button>
 </form>

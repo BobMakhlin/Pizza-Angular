@@ -1,0 +1,43 @@
+<form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+    <div class="form-group">
+        <label for="status">Status</label>
+        <select formControlName="status" class="form-control" id="status">
+          <option [ngValue]="null">Select the status</option>
+    
+          <option *ngFor="let status of statusList" [ngValue]="status">
+            {{ status.title }}
+          </option>
+        </select>
+    
+        <ng-container *ngIf="formStatus.touched">
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="formStatus.hasError('required')"
+          >
+            Status is required
+          </div>
+        </ng-container>
+      </div>
+    
+      <div class="form-group">
+        <label for="time">Time</label>
+        <input
+          formControlName="time"
+          type="date"
+          class="form-control"
+          id="time"
+          placeholder="Enter the time"
+        />
+    
+        <ng-container *ngIf="formTime.touched">
+          <div
+            class="alert alert-danger mt-2"
+            *ngIf="formTime.hasError('required')"
+          >
+            Time is required
+          </div>
+        </ng-container>
+      </div>
+    
+      <button [disabled]="formGroup.invalid" class="btn btn-success">Submit</button>
+</form>

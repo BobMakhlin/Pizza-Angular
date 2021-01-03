@@ -1,0 +1,28 @@
+<form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" novalidate>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input
+        formControlName="amount"
+        type="number"
+        class="form-control"
+        id="amount"
+        placeholder="Enter the amount"
+      />
+  
+      <ng-container *ngIf="formAmount.touched">
+        <div
+          class="alert alert-danger mt-2"
+          *ngIf="formAmount.hasError('required')"
+        >
+          Amount is required
+        </div>
+  
+        <div class="alert alert-danger mt-2" *ngIf="formAmount.hasError('min')">
+          The amount should be more then zero
+        </div>
+      </ng-container>
+    </div>
+  
+    <button [disabled]="formGroup.invalid" class="btn btn-success">Submit</button>
+  </form>
+  

@@ -1,0 +1,7 @@
+<button (click)="createOrderPosition()" type="button" class="btn btn-primary mb-3">
+  <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+  Create New
+</button>
+
+<app-order-positions-table [orderPositions]="orderPositions">
+</app-order-positions-table>

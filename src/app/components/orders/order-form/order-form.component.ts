@@ -1,51 +1,63 @@
 import { formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormGroup,
+  ValidatorFn,
+} from '@angular/forms';
 import { Order } from 'src/app/models/order';
+import { OrderPosition } from 'src/app/models/order-position';
 import { OrderStatus } from 'src/app/models/order-status';
 import { Product } from 'src/app/models/product';
 import { Status } from 'src/app/models/status';
-import { OrderService } from 'src/app/services/crud/api-crud/order.service';
 import { OrderHelpersService } from 'src/app/services/order-helpers.service';
 
 @Component({
   selector: 'app-order-form',
   templateUrl: './order-form.component.html',
-  styleUrls: ['./order-form.component.css']
+  styleUrls: ['./order-form.component.css'],
 })
 export class OrderFormComponent implements OnInit {
+  public orderPositions: OrderPosition[];
+  public orderStatuses: OrderStatus[];
 
   public mainFormGroup: FormGroup;
 
-  public selectedStatus: Status;
-
   @Input() model: Order;
-  @Input() products: Product[];
-  @Input() statuses: Status[];
+  @Input() productList: Product[];
+  @Input() statusList: Status[];
 
   @Output() onFormSubmit: EventEmitter<Order> = new EventEmitter<Order>();
 
-
   constructor(
-    private m_formBuilder: FormBuilder,
     private m_orderHelpers: OrderHelpersService
-  ) { }
-
+  ) {}
 
   public ngOnInit(): void {
     this.buildForm();
+
+    this.orderPositions = this.model.orderPosition;
+    this.orderStatuses = this.model.orderStatus;
   }
 
   public handleFormSubmit(): void {
     const order: Order = this.mainFormGroup.value;
+    order.orderStatus = this.orderStatuses;
+    order.orderPosition = this.orderPositions;
+
     this.onFormSubmit.emit(order);
   }
 
   public buildForm(): void {
+    this.mainFormGroup = this.m_orderHelpers.convertOrderToFormGroup(
+      this.model
+    );
+  }
 
-    this.mainFormGroup =
-      this.m_orderHelpers.convertOrderToFormGroup(this.model);
 
+  public createOrderPosition(): void {
+    
   }
 
 
@@ -84,11 +96,17 @@ export class OrderFormComponent implements OnInit {
   public get formOrderPosition(): FormArray {
     return this.mainFormGroup.get('orderPosition') as FormArray;
   }
+
+  public isReadyToSend(): boolean {
+    return (
+      this.mainFormGroup.valid &&
+      this.orderPositions.length > 0 &&
+      this.orderStatuses.length > 0
+    );
+  }
 }
 
-
 const OrderTimeAndDeliveryTimeValidator: ValidatorFn = (fg: FormGroup) => {
-
   const orderTime: AbstractControl = fg.get('orderTime');
   const deliveryTime: AbstractControl = fg.get('deliveryTime');
 
@@ -98,6 +116,3 @@ const OrderTimeAndDeliveryTimeValidator: ValidatorFn = (fg: FormGroup) => {
 
   return { unrealOrderTime: true };
 };
-
-// fill the formarrays with data;
-// the order should have at least one orderposition and orderstatus.

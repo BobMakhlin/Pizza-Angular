@@ -11,6 +11,8 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductFormComponent implements OnInit {
 
+  public productIngredients: Ingredient[];
+
   @Input() product: Product;
   @Input() categoryList: Category[];
   @Input() ingredientList: Ingredient[];
@@ -46,6 +48,8 @@ export class ProductFormComponent implements OnInit {
 
   public ngOnInit(): void {
     this.buildForm();
+
+    this.productIngredients = this.product.ingredients;
   }
 
   public buildForm() {
@@ -58,8 +62,7 @@ export class ProductFormComponent implements OnInit {
       description:  [this.product.description, [Validators.maxLength(128)]],
       weight:       [this.product.weight, [Validators.required, Validators.min(1)]],
       price:        [this.product.price, [Validators.required, Validators.min(1)]],
-      category:     [this.product.category, Validators.required],
-      ingredients:  this.m_formBuilder.array(this.product.ingredients)
+      category:     [this.product.category, Validators.required]
     });
 
 
@@ -67,6 +70,7 @@ export class ProductFormComponent implements OnInit {
 
   public handleFormSubmit(): void {
     const product: Product = this.mainFormGroup.value;
+    product.ingredients = this.productIngredients;
 
     this.onFormSubmit.emit(product);
   }

@@ -1,7 +1,7 @@
 import { formatDate } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import maxBy from 'lodash-es/maxby';
+import maxBy from 'lodash-es/maxBy';
 import { Order } from '../models/order';
 import { OrderPosition } from '../models/order-position';
 import { OrderStatus } from '../models/order-status';
@@ -95,20 +95,6 @@ export class OrderHelpersService {
         order.comment,
         [Validators.maxLength(128)]
       ],
-
-      orderStatus: this.m_formBuilder.array(
-        order.orderStatus.map(
-          item => this.convertOrderStatusToFormGroup(item)
-        ),
-        Validators.required
-      ),
-
-      orderPosition: this.m_formBuilder.array(
-        order.orderPosition.map(
-          item => this.convertOrderPositionToFormGroup(item)
-        ),
-        Validators.required
-      ),
     }, { validator: OrderTimeAndDeliveryTimeValidator })
   }
 

@@ -1,0 +1,23 @@
+<form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+  <div class="form-group">
+    <label for="ingredient">Ingredient</label>
+    <select formControlName="ingredient" class="form-control" id="ingredient">
+      <option [ngValue]="null">Select the ingredient</option>
+
+      <option *ngFor="let ingredient of ingredientList" [ngValue]="ingredient">
+        {{ ingredient.title }}
+      </option>
+    </select>
+
+    <ng-container *ngIf="formIngredient.touched">
+      <div
+        class="alert alert-danger mt-2"
+        *ngIf="formIngredient.hasError('required')"
+      >
+        Ingredient is required
+      </div>
+    </ng-container>
+  </div>
+
+  <button [disabled]="formGroup.invalid" class="btn btn-success">Submit</button>
+</form>
